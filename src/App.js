@@ -35,14 +35,11 @@ function App() {
   return (
     <div className="page-container">
       <div className="content-wrap">
-      <Header/>
+      {/* <Header/> */}
       <NavBar/>
         <Switch>
           <Route exact path="/">
             <Home />
-          </Route>
-          <Route path="/passwords">
-            <Passwords />
           </Route>
           <Route path="/about">
             <About />
