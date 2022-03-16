@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import { useEffect } from 'react'
+
+// import ToDoList from './ToDoList'
+// import ToDoForm from './ToDoForm'
+// import {fetchTodo} from './actions/actions'
+// import {connect} from 'react-redux'
+
+// const mapStateToProps = (state) => ({
+//   isLoading: state.isLoading,
+//   error: state.error
+// })
 
 function App() {
+
+  //   useEffect(()=>{
+  //     props.fetchTodo()
+  // }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Password Manager</h1>
+      <Nav />
+      <Footer />
     </div>
   );
 }
