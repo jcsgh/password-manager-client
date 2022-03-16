@@ -6,8 +6,8 @@ import {
 
 const NavBar = () => {
     return (
-        <div className="App">
-            <ReactBootStrap.Navbar collapseOnSelect expand="xl" bg="black" variant="dark">
+        <div className="Nav">
+            <ReactBootStrap.Navbar collapseOnSelect expand="xl" bg="primary" variant="dark" class>
                 <ReactBootStrap.Navbar.Brand href="/">Password Manager</ReactBootStrap.Navbar.Brand>
                 <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
