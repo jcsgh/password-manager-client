@@ -38,7 +38,7 @@ function App() {
       <Header/>
       <NavBar/>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
           <Route path="/passwords">
