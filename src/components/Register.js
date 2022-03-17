@@ -14,7 +14,7 @@ const Register = () => {
 
     const [form, setForm] = useState(formData)
 
-    const onSubmitHandler = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
        
             axios
@@ -23,35 +23,35 @@ const Register = () => {
             .catch(error => console.log(error))
         }
 
-    const onChangeHandler = (e) => {
+    const handleChange = (e) => {
         e.preventDefault()
         setForm({...form, [e.target.name]:e.target.value})
     }
 
     return (
-      <div className="container">
+      <div className="auth-container">
        <h3>Register</h3>
-       <form name="form" onSubmit={onSubmitHandler}>
+       <form name="form" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="firstname">First name</label>
 
-                        <input type="text" name="firstname" value={form.firstname} onChange={onChangeHandler}/>
+                        <input type="text" name="firstname" value={form.firstname} onChange={handleChange}/>
                     </div>
                     <div>
                         <label htmlFor="lastname">Last name</label>
-                        <input type="text" name="lastname" value={form.lastname} onChange={onChangeHandler}/>
+                        <input type="text" name="lastname" value={form.lastname} onChange={handleChange}/>
                     </div>
                     <div>
                         <label htmlFor="username">Username</label>
-                        <input type="text" name="username" value={form.username} onChange={onChangeHandler}/>
+                        <input type="text" name="username" value={form.username} onChange={handleChange}/>
                     </div>
                     <div>
                         <label htmlFor="email">Email</label>
-                        <input type="text" name="email" value={form.email} onChange={onChangeHandler}/>
+                        <input type="text" name="email" value={form.email} onChange={handleChange}/>
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" value={form.password} onChange={onChangeHandler}/>
+                        <input type="password" name="password" value={form.password} onChange={handleChange}/>
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>

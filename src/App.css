@@ -29,6 +29,15 @@
   padding: 1.5em;
 }
 
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5em;
+  padding-top: 11em;
+}
+
 .git-icon {
   color: white;
 }
