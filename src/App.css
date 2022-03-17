@@ -17,6 +17,8 @@
   bottom: 0;
   width: 100%;
   text-align: center;
+  background-color: #0d6efd;
+  color: white;
 }
 
 .container {
@@ -25,4 +27,8 @@
   justify-content: center;
   flex-direction: column;
   padding: 1.5em;
+}
+
+.git-icon {
+  color: white;
 }
