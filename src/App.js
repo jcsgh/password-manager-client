@@ -7,6 +7,8 @@ import Passwords from './components/Passwords';
 import About from './components/About';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import Login from './components/Login';
+import Register from './components/Register';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from 'react'
@@ -40,6 +42,12 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/register">
+            <Register />
           </Route>
           <Route path="/about">
             <About />
