@@ -2,10 +2,27 @@
   text-align: center;
 }
 
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  padding-bottom: 2.5rem;
+}
+
 .main-footer {
   padding-top: 3em;
-  position: relative;
-  bottom: 0%;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5em;
 }

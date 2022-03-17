@@ -12,9 +12,6 @@ const NavBar = () => {
                 <ReactBootStrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <ReactBootStrap.Navbar.Collapse id="responsive-navbar-nav">
                     <ReactBootStrap.Nav className="mr-auto">
-                        <Link to="/">
-                            <ReactBootStrap.Nav.Link href="/">Home</ReactBootStrap.Nav.Link>
-                        </Link>
                         <ReactBootStrap.Nav.Link eventKey={2} href="/About">
                             About
                         </ReactBootStrap.Nav.Link>
