@@ -16,7 +16,7 @@ const Login = () => {
         e.preventDefault()
        
             axios
-            .post("http://localhost:5000/auth/login", form)
+            .post("https://josh-password-manager.herokuapp.com/auth/login", form)
             .then(data => console.log(data))
             .catch(error => console.log(error))
         }

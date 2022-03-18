@@ -20,7 +20,7 @@ const Register = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault()
             axios
-            .post("http://localhost:5000/auth/register", form)
+            .post("https://josh-password-manager.herokuapp.com/auth/register", form)
             .then(data => {
                 // const { message } = data;
                 // setMessage(message);
