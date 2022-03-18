@@ -35,7 +35,7 @@
   justify-content: center;
   flex-direction: column;
   padding: 1.5em;
-  padding-top: 11em;
+  /* padding-top: 11em; */
 }
 
 .git-icon {

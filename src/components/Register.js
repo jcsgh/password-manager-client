@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useState } from "react"
 import axios from 'axios'
+import Message from './Message';
 
-const Register = () => {
+const Register = (props) => {
 
     const [formData] = useState({
         firstname: '',
@@ -14,13 +15,22 @@ const Register = () => {
 
     const [form, setForm] = useState(formData)
 
+    const [message, setMessage] = useState(null);
+
     const handleSubmit = (e) => {
         e.preventDefault()
-       
             axios
             .post("http://localhost:5000/auth/register", form)
-            .then(data => console.log(data))
-            .catch(error => console.log(error))
+            .then(data => {
+                const { message } = data;
+                setMessage(message);
+                console.log(data)
+            })
+            .catch(error => {
+                const { message } = error;
+                setMessage(message);
+                console.log(error)
+            })
         }
 
     const handleChange = (e) => {
@@ -53,6 +63,7 @@ const Register = () => {
                         <label htmlFor="password">Password</label>
                         <input type="password" name="password" value={form.password} onChange={handleChange}/>
                     </div>
+                    {message ? <Message message={message}/> : null}
                     <div className="form-group">
                         <button className="btn btn-primary">Register</button>
                         <Link to="/login" className="btn btn-link">Login</Link>
