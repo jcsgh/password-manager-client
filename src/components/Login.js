@@ -21,8 +21,9 @@ const Login = () => {
             axios
             .post("https://josh-password-manager.herokuapp.com/auth/login", form)
             .then(data => {
-                console.log(data)
-                history.push("/home");
+                console.log(data.data)
+                localStorage.setItem('user', data.data.user.username)
+                history.push("/passwords");
             })
             .catch(error => console.log(error))
         }

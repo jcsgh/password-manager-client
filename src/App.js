@@ -43,8 +43,8 @@ function App() {
         <Route exact path="/">
             <h1>Main Page</h1>
           </Route>
-          <Route exact path="/home">
-            <Home />
+          <Route path="/passwords">
+            <Passwords />
           </Route>
           <Route path="/login">
             <Login />
