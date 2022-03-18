@@ -14,11 +14,11 @@ export default function reducer(state=initialState, action){
             }
         case FETCH_PWD_FAIL:
             return {
-                ...state, pwdData: state.pwdData, error: action.payload, isLoading: false
+                ...state, pwdData: state.pwdData, error: [...action.payload], isLoading: false
             }
         case FETCH_PWD_SUCCESS:
             return {
-                ...state, pwdData: action.payload, error: "", isLoading: false
+                ...state, pwdData: [...action.payload], error: "", isLoading: false
             }
             case UPDATE_PWD:
                 let updatedState=[]
