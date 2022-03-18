@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useState } from "react"
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
 // import Message from './Message';
 
 const Register = (props) => {
+
+    let history = useHistory()
 
     const [formData] = useState({
         firstname: '',
@@ -25,6 +28,7 @@ const Register = (props) => {
                 // const { message } = data;
                 // setMessage(message);
                 console.log(data)
+                history.push("/login");
             })
             .catch(error => {
                 // const { message } = error;
@@ -37,6 +41,11 @@ const Register = (props) => {
         e.preventDefault()
         setForm({...form, [e.target.name]:e.target.value})
     }
+
+    // const handleClick = (e) => {
+    //     e.preventDefault()
+        
+    // }
 
     return (
       <div className="auth-container">
@@ -65,7 +74,7 @@ const Register = (props) => {
                     </div>
                     {/* {message ? <Message message={message}/> : null} */}
                     <div className="form-group">
-                        <button className="btn btn-primary">Register</button>
+                        <button className="btn btn-primary" >Register</button>
                         <Link to="/login" className="btn btn-link">Login</Link>
                     </div>
                 </form>
