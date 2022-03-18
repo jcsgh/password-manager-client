@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useState } from "react"
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
 import Message from './Message';
 
 const Login = () => {
+
+    let history = useHistory()
 
     const [formData] = useState({
         username: '',
@@ -12,16 +15,19 @@ const Login = () => {
 
     const [form, setForm] = useState(formData)
 
-    const onSubmitHandler = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
        
             axios
             .post("https://josh-password-manager.herokuapp.com/auth/login", form)
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                history.push("/home");
+            })
             .catch(error => console.log(error))
         }
 
-    const onChangeHandler = (e) => {
+    const handleChange = (e) => {
         e.preventDefault()
         setForm({...form, [e.target.name]:e.target.value})
     }
@@ -29,14 +35,14 @@ const Login = () => {
     return (
       <div className="auth-container">
        <h3>Login</h3>
-       <form name="form" onSubmit={onSubmitHandler}>
+       <form name="form" onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="username">Username</label>
-                        <input type="text" name="username" value={form.username} onChange={onChangeHandler}/>
+                        <input type="text" name="username" value={form.username} onChange={handleChange}/>
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" value={form.password} onChange={onChangeHandler}/>
+                        <input type="password" name="password" value={form.password} onChange={handleChange}/>
                     </div>
                     <div className="form-group">
                         <button className="btn btn-primary">Login</button>

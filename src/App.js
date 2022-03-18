@@ -40,7 +40,10 @@ function App() {
       {/* <Header/> */}
       <NavBar/>
         <Switch>
-          <Route exact path="/">
+        <Route exact path="/">
+            <h1>Main Page</h1>
+          </Route>
+          <Route exact path="/home">
             <Home />
           </Route>
           <Route path="/login">
