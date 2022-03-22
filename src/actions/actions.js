@@ -25,7 +25,7 @@ export const addPassword = (password) => (dispatch) => {
   dispatch({ type: FETCH_PASSWORD_START })
   console.log(password)
   axios
-    .post("https://localhost:3000/password", password)
+    .post("https://localhost:5000/passwordManager/passwords", password)
     .then(data => dispatch({ type: ADD_PASSWORD, payload: data.data.password_item }))
     .catch(err => dispatch({ type: FETCH_PASSWORD_FAIL, payload: err.message }))
   // 
