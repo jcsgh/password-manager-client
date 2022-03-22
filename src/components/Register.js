@@ -75,7 +75,7 @@ const Register = (props) => {
                     {/* {message ? <Message message={message}/> : null} */}
                     <div className="form-group">
                         <button className="btn btn-primary" >Register</button>
-                        <Link to="/login" className="btn btn-link">Login</Link>
+                        <Link to="/auth/login" className="btn btn-link">Login</Link>
                     </div>
                 </form>
       </div>

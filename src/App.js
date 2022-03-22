@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/">
             <Home/>
           </Route>
-          <Route path="/passwordManager/passwords">
+          <Route path="/account/passwords">
             <Passwords />
           </Route>
           <Route path="/auth/login">
