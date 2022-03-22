@@ -1,8 +1,7 @@
-import '../App.css';
-import PwdList from '../PwdList'
-import PwdForm from '../PwdForm'
+import PasswordList from '../passwordList.js'
+import PasswordForm from '../passwordForm'
 import { useEffect } from 'react'
-import {fetchPwd} from '../actions/actions'
+import {fetchPassword} from '../actions/actions'
 import {connect} from 'react-redux'
 
 const mapStateToProps = (state) => ({
@@ -12,17 +11,16 @@ const mapStateToProps = (state) => ({
 
 function Passwords(props) {
   useEffect(()=>{
-    props.fetchPwd()
+    props.fetchPassword()
 }, [])
-    return (
-      <div className="container">
-       <h3>Passwords</h3>
-       <PwdForm />
-      {props.isLoading ? "pwd LIST IS LOADING" : "pwd LIST LOADED" }
-      <PwdList />
+  return (
+    <div className="App">
+      <PasswordForm />
+      {props.isLoading ? "password LIST IS LOADING" : "password LIST LOADED" }
+      <PasswordList />
       {props.error !== "" ? props.error : ""}
-      </div>
-    );
-  }
-  
-  export default connect(mapStateToProps, {fetchPwd})(Passwords)
+    </div>
+  );
+}
+
+export default connect(mapStateToProps, {fetchPassword})(Passwords)

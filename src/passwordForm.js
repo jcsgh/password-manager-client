@@ -1,11 +1,11 @@
 import {useState} from 'react'
 import { connect } from 'react-redux'
-import { addPwd } from './actions/actions'
+import { addPassword } from './actions/actions'
 
-function PwdForm(props){
+function PasswordForm(props){
     const [initialForm] = useState({
         title: "",
-        textContent: "",
+        password: "",
         created_at:"",
         completed: false
     })
@@ -21,15 +21,15 @@ function PwdForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        props.addToDo(form)
+        props.addPassword(form)
         setForm(initialForm)
 
     }
     return(
         <div>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="site">For: </label>
-            <input type="text" name="site" onChange={handleChange}/>
+            <label htmlFor="title">Password for: </label>
+            <input type="text" name="title" onChange={handleChange}/>
             <label htmlFor="password">Password:</label>
             <input type="text" name="password" onChange={handleChange}/>
             <label htmlFor="created_at">Date Created:</label>
@@ -40,4 +40,4 @@ function PwdForm(props){
     )
 }
 
-export default connect(null, {addPwd})(PwdForm)
+export default connect(null, {addPassword})(PasswordForm)

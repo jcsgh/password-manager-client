@@ -1,45 +1,45 @@
-import { ADD_PWD, REMOVE_PWD, UPDATE_PWD, FETCH_PWD_START, FETCH_PWD_SUCCESS, FETCH_PWD_FAIL } from '../actions/actions'
+import { ADD_PASSWORD, REMOVE_PASSWORD, UPDATE_PASSWORD, FETCH_PASSWORD_START, FETCH_PASSWORD_SUCCESS, FETCH_PASSWORD_FAIL } from '../actions/actions'
 
 const initialState = {
-    pwdData: [],
+    passwordData: [],
     isLoading: false,
     error: ""
 }
 
 export default function reducer(state=initialState, action){
     switch(action.type){
-        case FETCH_PWD_START:
+        case FETCH_PASSWORD_START:
             return {
-                ...state, pwdData: state.pwdData, error: "", isLoading: true
+                ...state, passwordData: state.passwordData, error: "", isLoading: true
             }
-        case FETCH_PWD_FAIL:
+        case FETCH_PASSWORD_FAIL:
             return {
-                ...state, pwdData: state.pwdData, error: [...action.payload], isLoading: false
+                ...state, passwordData: state.passwordData, error: action.payload, isLoading: false
             }
-        case FETCH_PWD_SUCCESS:
+        case FETCH_PASSWORD_SUCCESS:
             return {
-                ...state, pwdData: [...action.payload], error: "", isLoading: false
+                ...state, passwordData: action.payload, error: "", isLoading: false
             }
-            case UPDATE_PWD:
+            case UPDATE_PASSWORD:
                 let updatedState=[]
-                for (let i = 0; i< state.pwdData.length; i++){
-                    if (state.pwdData[i]._id === action.payload._id){
+                for (let i = 0; i< state.passwordData.length; i++){
+                    if (state.passwordData[i]._id === action.payload._id){
                         updatedState.push(action.payload)
                     } else{
-                        updatedState.push(state.pwdData[i])
+                        updatedState.push(state.passwordData[i])
                     }
                 }
                 return {
-                    ...state, pwdData: updatedState
+                    ...state, passwordData: updatedState
                 }
-        case ADD_PWD:
+        case ADD_PASSWORD:
             return {
-                ...state, pwdData: [...state.pwdData, action.payload], isLoading: false
+                ...state, passwordData: [...state.passwordData, action.payload], isLoading: false
             }
-        case REMOVE_PWD:
-            let newState = state.pwdData.filter(item => item !== action.payload)
+        case REMOVE_PASSWORD:
+            let newState = state.passwordData.filter(item => item !== action.payload)
             return {
-                ...state, pwdData: newState
+                ...state, passwordData: newState
             }
         default:
             return state

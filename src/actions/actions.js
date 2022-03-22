@@ -1,52 +1,50 @@
 import axios from 'axios'
 
-export const FETCH_PWD_START = "FETCH_PWD_START"
-export const FETCH_PWD_SUCCESS = "FETCH_PWD_SUCCESS"
-export const FETCH_PWD_FAIL = "FETCH_PWD_FAIL"
-export const ADD_PWD = "ADD_PWD"
-export const UPDATE_PWD = "UPDATE_PWD"
+export const FETCH_PASSWORD_START = "FETCH_PASSWORD_START"
+export const FETCH_PASSWORD_SUCCESS = "FETCH_PASSWORD_SUCCESS"
+export const FETCH_PASSWORD_FAIL = "FETCH_PASSWORD_FAIL"
+export const ADD_PASSWORD = "ADD_PASSWORD"
+export const UPDATE_PASSWORD = "UPDATE_PASSWORD"
 
-export const REMOVE_PWD = "REMOVE_PWD"
+export const REMOVE_PASSWORD = "REMOVE_PASSWORD"
 
-export const fetchPwd = () => (dispatch) => {
-  dispatch({ type: FETCH_PWD_START })
+export const fetchPassword = () => (dispatch) => {
+  dispatch({ type: FETCH_PASSWORD_START })
 
   axios
-    .get("https://josh-password-manager.herokuapp.com/passwordManager")
+    .get("https://localhost:3000/password")
     .then(data => {
-      console.log(data.data.pwd_item)
-      dispatch({ type: FETCH_PWD_SUCCESS, payload: data.data.pwd_item })
+      dispatch({ type: FETCH_PASSWORD_SUCCESS, payload: data.data.password_list })
     })
     .catch(err => {
-      dispatch({ type: FETCH_PWD_FAIL, payload: err.message })
+      dispatch({ type: FETCH_PASSWORD_FAIL, payload: err.message })
     })
 }
 
-export const addPwd = (pwd) => (dispatch) => {
-  dispatch({ type: FETCH_PWD_START })
-  console.log(pwd)
-  const user = localStorage.getItem('user')
+export const addPassword = (password) => (dispatch) => {
+  dispatch({ type: FETCH_PASSWORD_START })
+  console.log(password)
   axios
-    .post(`https://josh-password-manager.herokuapp.com/passwordManager/${user}/createPassword`, pwd)
-    .then(data => dispatch({ type: ADD_PWD, payload: data.data.pwd_item }))
-    .catch(err => dispatch({ type: FETCH_PWD_FAIL, payload: err.message }))
+    .post("https://localhost:3000/password", password)
+    .then(data => dispatch({ type: ADD_PASSWORD, payload: data.data.password_item }))
+    .catch(err => dispatch({ type: FETCH_PASSWORD_FAIL, payload: err.message }))
   // 
 }
 
-export const removePwd = (id, pwd) => (dispatch) => {
-  dispatch({ type: FETCH_PWD_START })
+export const removePassword = (id, password) => (dispatch) => {
+  dispatch({ type: FETCH_PASSWORD_START })
   axios
-    .delete(`https://josh-password-manager.herokuapp.com/passwords/${id}`)
-    .then(data => dispatch({ type: REMOVE_PWD, payload: pwd }))
-    .catch(err => dispatch({ type: FETCH_PWD_FAIL, payload: err.message }))
+    .delete(`https://localhost:3000/password/${id}`)
+    .then(data => dispatch({ type: REMOVE_PASSWORD, payload: password }))
+    .catch(err => dispatch({ type: FETCH_PASSWORD_FAIL, payload: err.message }))
 
 }
 
-export const updatePwd = (id, update) => (dispatch) => {
-  dispatch({ type: FETCH_PWD_START })
+export const updatePassword = (id, update) => (dispatch) => {
+  dispatch({ type: FETCH_PASSWORD_START })
   axios
-    .put(`https://josh-password-manager.herokuapp.com/passwords/${id}`, update)
-    .then(data => dispatch({ type: UPDATE_PWD, payload: data.data.pwd_item }))
-    .catch(err => dispatch({ type: FETCH_PWD_FAIL, payload: err.message })
+    .put(`https://localhost:3000/password/${id}`, update)
+    .then(data => dispatch({ type: UPDATE_PASSWORD, payload: data.data.password_item }))
+    .catch(err => dispatch({ type: FETCH_PASSWORD_FAIL, payload: err.message })
     )
 }
