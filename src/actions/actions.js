@@ -12,7 +12,7 @@ export const fetchPassword = () => (dispatch) => {
   dispatch({ type: FETCH_PASSWORD_START })
 
   axios
-    .get("https://localhost:3000/password")
+    .get("https://localhost:5000/passwordManager/passwords")
     .then(data => {
       dispatch({ type: FETCH_PASSWORD_SUCCESS, payload: data.data.password_list })
     })
@@ -34,7 +34,7 @@ export const addPassword = (password) => (dispatch) => {
 export const removePassword = (id, password) => (dispatch) => {
   dispatch({ type: FETCH_PASSWORD_START })
   axios
-    .delete(`https://localhost:3000/password/${id}`)
+    .delete(`https://localhost:5000/passwordManager/passwords/${id}`)
     .then(data => dispatch({ type: REMOVE_PASSWORD, payload: password }))
     .catch(err => dispatch({ type: FETCH_PASSWORD_FAIL, payload: err.message }))
 
@@ -43,7 +43,7 @@ export const removePassword = (id, password) => (dispatch) => {
 export const updatePassword = (id, update) => (dispatch) => {
   dispatch({ type: FETCH_PASSWORD_START })
   axios
-    .put(`https://localhost:3000/password/${id}`, update)
+    .put(`https://localhost:5000/passwordManager/passwords/${id}`, update)
     .then(data => dispatch({ type: UPDATE_PASSWORD, payload: data.data.password_item }))
     .catch(err => dispatch({ type: FETCH_PASSWORD_FAIL, payload: err.message })
     )

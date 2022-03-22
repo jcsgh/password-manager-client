@@ -15,10 +15,10 @@ const NavBar = () => {
                         <ReactBootStrap.Nav.Link eventKey={2} href="/about">
                             About
                         </ReactBootStrap.Nav.Link>
-                        <ReactBootStrap.Nav.Link eventKey={2} href="/register">
+                        <ReactBootStrap.Nav.Link eventKey={2} href="/auth/register">
                             Register
                         </ReactBootStrap.Nav.Link>
-                        <ReactBootStrap.Nav.Link eventKey={2} href="/login">
+                        <ReactBootStrap.Nav.Link eventKey={2} href="/auth/login">
                             Login
                         </ReactBootStrap.Nav.Link>
                 </ReactBootStrap.Nav>
