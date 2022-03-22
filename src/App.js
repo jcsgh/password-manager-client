@@ -5,13 +5,12 @@ import About from './components/About';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
+import Home from './components/Home'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect } from 'react'
 import {
   Route,
-  Switch,
-  Link
+  Switch
 } from "react-router-dom";
 
 function App() {
@@ -19,11 +18,10 @@ function App() {
   return (
     <div className="page-container">
       <div className="content-wrap">
-      {/* <Header/> */}
       <NavBar/>
         <Switch>
         <Route exact path="/">
-            <h1>Main Page</h1>
+            <Home/>
           </Route>
           <Route path="/passwords">
             <Passwords />
