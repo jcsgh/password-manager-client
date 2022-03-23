@@ -4,7 +4,7 @@
 
 [Link to app](https://password-manager-app.netlify.app)
 
-[Link to backend code](https://github.com/jcsgh/password-manager-server)
+[Link to backend code on github](https://github.com/jcsgh/password-manager-server)
 
 
 
